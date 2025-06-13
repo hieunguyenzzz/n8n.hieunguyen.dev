@@ -21,6 +21,8 @@ services:
       - n8n_data:/home/node/.n8n
     depends_on:
       - postgres
+    networks:
+      - n8n_network
 
   postgres:
     image: postgres:15-alpine
@@ -33,7 +35,13 @@ services:
       - POSTGRES_NON_ROOT_PASSWORD=${POSTGRES_PASSWORD:-n8n}
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - n8n_network
 
 volumes:
   n8n_data:
   postgres_data: 
+
+networks:
+  n8n_network:
+    driver: bridge 
