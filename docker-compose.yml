@@ -31,6 +31,7 @@ services:
       - POSTGRES_DB=${POSTGRES_DB:-n8n}
       - POSTGRES_NON_ROOT_USER=${POSTGRES_USER:-n8n}
       - POSTGRES_NON_ROOT_PASSWORD=${POSTGRES_PASSWORD:-n8n}
+      - VUE_APP_URL_BASE_API=${VUE_APP_URL_BASE_API:-http://localhost:5678}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
