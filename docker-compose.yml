@@ -4,6 +4,8 @@ services:
   n8n:
     image: n8nio/n8n:latest
     restart: always
+    ports:
+      - "5672:5678"
     environment:
       - N8N_HOST=${N8N_HOST:-localhost}      
       - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
